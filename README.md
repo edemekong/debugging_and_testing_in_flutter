@@ -152,9 +152,9 @@ By handling exceptions with finesse, you'll ensure your program stays upright an
         ```dart
         Either<FormatException, double> parseNumber(String value) {
             try {
-            return Either.right(double.parse(value));
+            return Right(double.parse(value));
             } on FormatException catch (e) {
-            return Either.left(e);
+            return Left(e);
             }
         }
         ```
