@@ -76,14 +76,104 @@ See [Talk slides]()
 
 
 ### Handling Exceptions & Errors like a Pro.
+Exception handling is like having a trusty sidekick by your side, ready to tackle unexpected errors that pop up during program execution.
+By handling exceptions with finesse, you'll ensure your program stays upright and dazzle users with helpful error messages.
+
 - **Difference between Exceptions & Errors.**
-- **Why apps crashes on exceptions.**
-- **Using `Try and Catch`, `print()`, and breakpoints.**
-- **Helpful packages to handle exceptions.**
+    In summary, errors and exceptions represent different types of problems that can occur during program execution. `Errors` are usually caused by serious problems that doesn’t usually past without incident, while `exceptions` are used to handle recoverable errors within a program.
+
+- **Why flutter apps crashes on exceptions.**
+    If exceptions isn’t caught, the isolate that raised the exception is suspended, and typically the isolate and its program are terminated. Your Android or iOS app crashes this kinds of anomalies occures.
+
+- **Using *`Try & Catch`, `assert()`, `print()`*, `breakpoints` and other helpful packages for exception handling.**
+    - ***Try and Catch***\
+        They allow you to handle exceptions that may occur during the execution of your code. When you use a try-catch block in your application, you can catch exceptions and handle them appropriately. 
+        
+        For example, you may want to display an error message to the user or log the error for debugging purposes.
+
+        Here's an example of how you can use try-catch blocks in your Flutter application:
+        ```dart
+        try {
+            // your code here
+        } catch (e) {
+            // handle the error here
+        }
+        ```
+    - ***Assertions***\
+        Assert is a tool that can be used to validate assumptions about the state of your application during development. If an assertion fails, an exception is thrown, which can help you catch and debug errors early on. You can use assert statements to check whether your code is behaving as expected and to identify errors before they become problematic.
+
+        Here's an example of how you can use assert in your Flutter application:
+
+        ```dart 
+        // Make sure the variable has a non-null value.
+        assert(text != null);
+
+        // Make sure the value is less than 100.
+        assert(number < 100);
+
+        // Make sure this is an https URL.
+        assert(urlString.startsWith('https'));
+        ```
+
+    - ***Print(Logging)***\
+        Using `print()` or a logging mechanisms to capture exceptions, stack traces, and essential information. These logs are your secret weapon for debugging and uncovering patterns of pesky errors.
+
+        Example:
+        ```dart
+        try {
+            // your code here
+        } catch (e) {
+            print(e); // this prints what e is.
+        }
+        ```
+    - ***Breakpoints***\
+        To set a breakpoint, click the left margin (the line number ruler) in the source area. Clicking once sets a breakpoint, which should also show up in the Breakpoints area on the left. Clicking again removes the breakpoint.
+
+        **The call stack and variable areas**\
+        When there is a breakpoint, our app pauses, and the devTools debugger shows the paused execution location in the source aree.
+
+        When your application encounters a breakpoint, it pauses there, and the DevTools debugger shows the paused execution location in the source area.
+
+        Within the Variables area, you can inspect individual objects by toggling them open to see their fields. Hovering over an object in the Variables area calls toString() for that object and displays the result.
+
+       **Stepping through source code**\
+        When paused, the three stepping buttons become active.
+
+        **Use Step** in to step into a method invocation, stopping at the first executable line in that invoked method.\
+        **Use Step** over to step over a method invocation; this steps through source lines in the current method.\
+        **Use Step out**  to step out of the current method, without stopping at any intermediary lines.\
+
+        In addition, the Resume button continues regular execution of the application.
+
+    - ***Using Either Dart***\
+        But on large codebases, it's hard to figure out which functions might throw and which don't.
+
+        Ideally, we want the signature of our functions to make it explicit that they can return an error. Using [either dart]() package can simplify that for us.
+        ```dart
+        Either<FormatException, double> parseNumber(String value) {
+            try {
+            return Either.right(double.parse(value));
+            } on FormatException catch (e) {
+            return Either.left(e);
+            }
+        }
+        ```
+
 - **Reporting Exceptions in your apps.**
+    The wrong way to handle application errors is to offload the reporting to users. You’ve probably seen those Send Error Report popups when one of your applications crashes. Do you ever actually click it and opt-in to sending (potentially sensitive) data to the developer? Have you ever heard back from them about an investigation they made and a fix they’ve deployed to make your life easier? Probably not. There’s no confidence in submitting error reports, and some research finds that only *`1% of users actually report the errors they’ve experienced`*.
+
+    Instead, you need to take a proactive approach to identify previously-unknown errors and exceptions without requiring direct feedback from your busy users.
+
+    There’s no way to deal with errors “live” or in production — the only solution is to detect them via error monitoring and bug tracking and dispatch a developer or two to sort out the code.
+
+    Example of such error monitoring bug tracking services:\
+    **[Firebase Crashlytics]()**\
+    **[Datadog]()**\
+    **[Sentry]()**
+
 
 ### Basic Testing In Flutter
 - **What is Testing?**
 - **Why Testing?**
-- **Unit & Widget test the how, and what it is.**
-- **Integration Testing: The real-world test scene.**
+- **Unit & Widget test, The how**
+
