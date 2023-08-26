@@ -1,4 +1,4 @@
-See [Talk slides]()
+See [Talk slides](https://docs.google.com/presentation/d/1EcJOB_32FJOXJuAmh2NeMeNIQunCp7mT/edit?usp=sharing&ouid=101455273561496206254&rtpof=true&sd=true)
 
 # Beginner Guide to Debugging & Testing In Flutter
 *Paul Jeremiah - FlutterConf23 Talk*
