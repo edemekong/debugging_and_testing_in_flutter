@@ -37,16 +37,24 @@ See [Talk slides]()
     Software defects arise due to the complexity that is involved in software development. Minor production errors are also observed after the software is live because customers use it in unexpected ways. We give below some common types of errors that often require the process of debugging.
 
     - ***Syntax errors***\
-    A syntax error is a bug that occurs when a computer program has an incorrectly typed statement.
+    A syntax error is a bug that occurs when a computer program has an incorrectly typed statement.\
+    *See [example](/dart_errors/bin/debugging_errors.dart)*
 
     - ***Semantic errors***\
-    Semantic errors occur due to the improper use of programming statements.
+    Semantic errors occur due to the improper use of programming statements.\
+    *See [example](/dart_errors/bin/debugging_errors.dart)*
+
 
     - ***Logic errors***\
-    Logic errors occur when programmers misrepresent the step-wise process or algorithm of a computer program.
+    Logic errors occur when programmers misrepresent the step-wise process or algorithm of a computer program.\
+    *See [example](/dart_errors/bin/debugging_errors.dart)*
+
+
 
     - ***Runtime errors***\
-    Runtime errors occur due to the computing environment in which the software code runs. 
+    Runtime errors occur due to the computing environment in which the software code runs.\
+    *See [example](/dart_errors/bin/debugging_errors.dart)*
+
 
 - **Helpful tools used for Debugging.**\
     As debugging is complex and not really for the fainted heart. There are some amazing tools that can help you to easily catch bugs before or after it occures.
@@ -167,9 +175,9 @@ By handling exceptions with finesse, you'll ensure your program stays upright an
     There’s no way to deal with errors “live” or in production — the only solution is to detect them via error monitoring and bug tracking and dispatch a developer or two to sort out the code.
 
     Example of such error monitoring bug tracking services:\
-    **[Firebase Crashlytics]()**\
-    **[Datadog]()**\
-    **[Sentry]()**
+    **[Firebase Crashlytics](https://firebase.google.com/docs/crashlyticsDa)**\
+    **[Datadog](https://docs.datadoghq.com/)**\
+    **[Sentry](https://docs.sentry.io/)**
 
 
 ### Basic Testing In Flutter
