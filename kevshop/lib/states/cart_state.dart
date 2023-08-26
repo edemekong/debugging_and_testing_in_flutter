@@ -11,11 +11,7 @@ class CartState extends ChangeNotifier {
   }
 
   int getQuantityFromCartItem(String id) {
-    try {
       return cartItems.firstWhere((element) => element.productId == id).quantity;
-    } catch (e) {
-      return 0;
-    }
   }
 
   void addToCart(Product product) {
@@ -37,7 +33,7 @@ class CartState extends ChangeNotifier {
 
     final newCartItem = CartItem(
       productId: product.id,
-      quantity: 1,
+      quantity: 2,
       product: product,
     );
 
@@ -51,7 +47,7 @@ class CartState extends ChangeNotifier {
     if (index != -1) {
       final CartItem oldItem = cartItems.removeAt(index);
 
-      if (oldItem.quantity > 1 && !forceRemove) {
+      if (oldItem.quantity > 2 && !forceRemove) {
         final CartItem newCartItem = oldItem.copyWith(
           quantity: oldItem.quantity - 1,
           product: product,
